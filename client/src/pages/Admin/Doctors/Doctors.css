@@ -1,0 +1,22 @@
+.doctors{
+    text-align: center;
+}
+.class{
+    display: flex;
+}
+.btn-btn-success{
+    color: white;
+    background-color: green;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: 20px;
+    border-radius: 4px;
+    border: none;
+}
+.class .btn-btn-danger{
+    color: white;
+    background-color: red;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 20px;
+}

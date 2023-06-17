@@ -1,0 +1,15 @@
+.user{
+    display: flex;
+}
+h1{
+    text-align: center;
+}
+.user .btn-btn-danger{
+    color: white;
+    background-color: red;
+    border: none;
+    font-size: 20px;
+    font-weight: 20px;
+    border-radius: 3px;
+    padding: 8px;
+}

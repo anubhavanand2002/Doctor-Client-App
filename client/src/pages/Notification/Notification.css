@@ -1,0 +1,29 @@
+.notification{
+    padding: 3px;
+    text-align: center;
+}
+ .row1{
+    display: flex;
+    justify-content: flex-end;
+  }
+ .row1 .mark{
+    padding: 2px;
+    background-color: white;
+    cursor: pointer;
+  }
+  .row2{
+    display: flex;
+    justify-content: flex-end;
+  }
+ .row2 .mark{
+    padding: 2px;
+    background-color: white;
+    cursor: pointer;
+  }
+  .card{
+    font-size: 20px;
+    border: 2px solid black;
+  }
+  .card p{
+    margin-left: 10px;
+  }
