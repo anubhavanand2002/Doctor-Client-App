@@ -31,6 +31,7 @@
 }
 .login-container .main-container input{
     width: 100%;
+    height: 40px;
 }
 .login-container .main-container button{
     margin: 20px 0px;

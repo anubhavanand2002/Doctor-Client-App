@@ -10,6 +10,7 @@ import Notification from "./pages/Notification/Notification";
 import Users from "./pages/Admin/Users/Users";
 import Doctors from "./pages/Admin/Doctors/Doctors";
 import Profile from "./pages/DoctorProfile/Profile";
+import BookingPage from "./pages/BookingPage/BookingPage";
 function App() {
   return (
     <>
@@ -29,6 +30,14 @@ function App() {
           element={
             <ProtectedRoute>
                  <ApplyDoctor/>
+            </ProtectedRoute>
+          } />
+
+        <Route 
+          path="/doctor/book-appointment/:doctorId" 
+          element={
+            <ProtectedRoute>
+                 <BookingPage/>
             </ProtectedRoute>
           } />
 

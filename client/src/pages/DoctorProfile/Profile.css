@@ -1,0 +1,48 @@
+.profile-container .main-container{
+    padding: 10px;
+}
+.profile-container .main-container{
+    display: flex;
+    flex-direction: column;
+}
+.profile-container .main-container .personal-details{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-container .main-container input{
+    width: 300px;
+    border-radius: 3px;
+    margin-top: 0px;
+    height: 40px;
+}
+.profile-container .main-container .personal-details .info{
+   margin: 10px 10px;
+}
+.profile-container .main-container p{
+    font-size: 20px;
+    font-weight: 50px;
+}
+
+.profile-container .main-container .professional-details{
+    display: flex;
+    flex-wrap: wrap;
+}
+.profile-container .main-container .professional-details .info{
+    margin: 10px 10px;
+ }
+ 
+ .profile-container .main-container .target{
+    margin-top: 30px;
+ }
+ .profile-container .btn{
+    margin-top: 130px;
+    color: white;
+    background-color: blue;
+    font-size: 30px;
+    font-weight: 40px;
+    width: 30%;
+    justify-content: center;
+    height: 50px;
+ }
+ 

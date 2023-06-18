@@ -25,9 +25,9 @@ export default function Layout({children}) {
       icon:<ion-icon name="home-outline"></ion-icon>
   },
   {
-      name:"Doctors",
-      path:"/admin/doctors",
-      icon:<ion-icon name="person-add-outline"></ion-icon>
+    name:"Appointments",
+    path:"/appointments",
+    icon:<ion-icon name="list-outline"></ion-icon>
   },
   {
       name:"Profile",

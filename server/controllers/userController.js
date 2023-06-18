@@ -2,6 +2,7 @@ import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import doctorModel from "../models/doctorModel.js";
+import appointmentModel from "../models/appointmentModel.js";
 //app.get(abdgdh,(req,res)=>{}) this is same function to be replaced
 
 //for registering the data of user
@@ -154,5 +155,44 @@ export const authdeleteAllNotificationController = async (req, res) => {
     return res
       .status(500)
       .json({ status: false, message: "Internal server error!!" });
+  }
+};
+
+export const getAllDoctorsController = async (req, res) => {
+  try {
+    const doctors = await doctorModel.find({ status: "Approved" });
+    return res.status(200).json({
+      status: true,
+      message: "Doctor info is generated",
+      doctors,
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(501)
+      .json({ status: false, message: "Internal Server error!!" });
+  }
+};
+
+export const bookAppointmentController = async (req, res) => {
+  try {
+    req.body.status = "pending";
+    const newBooking = new appointmentModel(req.body);
+    await newBooking.save();
+    const user = await User.findOne({ _id: req.body.doctorInfo.userId });
+    user.notification.push({
+      type: "New Appointment request",
+      message: `A new request from ${req.body.userInfo.name} for a appointment`,
+    });
+    await user.save();
+    return res.status(200).json({
+      status: true,
+      message: "Appointment Booked Successfully!!",
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ status: false, message: "internal Server error!!" });
   }
 };

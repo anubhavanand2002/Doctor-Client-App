@@ -1,0 +1,50 @@
+.booking-container{
+    padding: 20px;
+    width: 100%;
+}
+.booking-container .main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.booking-container input{
+    width: 45%;
+    height: 20%;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.time input{
+    width: 45%;
+    margin: 10px 0px;
+}
+.btn{
+    background-color: blue;
+    color: white;
+    width: 60%;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.btn:hover {
+    background-color: rgb(33, 187, 59);
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+.btn1{
+    background-color: rgba(58, 57, 57, 0.228);
+    color: black;
+    width: 60%;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+.btn1:hover {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 4px;
+  }

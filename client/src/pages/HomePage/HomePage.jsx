@@ -2,23 +2,23 @@ import React,{useEffect,useState}  from 'react'
 import axios from 'axios';
 import './HomePage.css';
 import Layout from '../../components/Layout/Layout';
-
+import DoctorList from '../../components/DoctorList/DoctorList';
 
 const HomePage = () => {
  
 
-  const[name,setName]=useState("");
+  const[doctors,setDoctors]=useState("");
 
-  const getUser=()=>{
-      axios.post("http://localhost:5000/api/auth/getUserData",{},{
+  const getDoctorData=()=>{
+      axios.get("http://localhost:5000/api/auth/getAllDoctors",{
         headers:{
           Authorization:"Bearer " + localStorage.getItem("token"),
         },
       }).then((result)=>{
         if(result.data.status)
         {
-           setName(result.data.data.name);
-           console.log(result);
+          console.log(result);
+           setDoctors(result.data.doctors);
         }
         else{
           console.log(result.data.message);
@@ -30,12 +30,17 @@ const HomePage = () => {
 
 
   useEffect(()=>{
-     getUser();
+     getDoctorData();
   },[])
 
   return (
     <Layout>
-       <h1>Home Paage</h1>
+      {
+        doctors && doctors.map((doctor) => (
+          <DoctorList doctor={doctor} />
+        ))
+      }
+
     </Layout>
   )
 }
