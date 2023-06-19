@@ -7,7 +7,7 @@ export const UserMenu=[
     },
     {
         name:"Appointments",
-        path:"/appointments",
+        path:"/user-appointments",
         icon:<ion-icon name="list-outline"></ion-icon>
     },
     {

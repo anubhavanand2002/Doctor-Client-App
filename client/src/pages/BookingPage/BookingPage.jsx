@@ -8,7 +8,7 @@ import {message} from 'antd';
 export default function BookingPage() {
    const params=useParams();
    const[doctor,setDoctor]=useState("");
-
+  const[IsAvailable,setIsAvailable]=useState(false);
    const[date,setDate]=useState();
    const[time,setTime]=useState();
 
@@ -64,6 +64,33 @@ export default function BookingPage() {
     })
    }
 
+   const handleCheckingAvailability=()=>{
+    axios.post("http://localhost:5000/api/auth/checking-availability",{
+      doctorId:params.doctorId,
+      date,
+      time,
+    },
+    {
+      headers:
+      {
+        "Authorization":"Bearer "+localStorage.getItem("token"),
+      }
+    }
+    ).then((result)=>{
+      if(result.data.status)
+      {
+        message.success(result.data.message);
+        setIsAvailable(true);
+      }
+      else{
+        message.error(result.data.message);
+        setIsAvailable(false);
+      }
+    }).catch((error)=>{
+      console.log(error);
+    })
+   }
+
 
    useEffect(()=>{
      getDoctor();
@@ -106,14 +133,22 @@ export default function BookingPage() {
 
         </div>
         <div>
-        <button className='btn'>Check Availability</button>
+        <button 
+        className='btn'
+        onClick={()=>{handleCheckingAvailability()}}
+        >
+          Check Availability
+        </button>
         </div>
+       {
+        IsAvailable &&
         <div>
         <button 
         className='btn1'
         onClick={()=>{handleSubmit()}}
         >Book Now</button>
         </div>
+       }
      </div>
     </Layout>
   )

@@ -7,7 +7,9 @@ import {
   authgetAllNotificationController,
   authdeleteAllNotificationController,
   getAllDoctorsController,
-  bookAppointmentController
+  bookAppointmentController,
+  checkingAvailabilityController,
+  getUserAppointmentListController,
 } from "../controllers/userController.js";
 import { authMiddleware } from "../middlewares/authMiddleware.js";
 const router = express.Router();
@@ -17,8 +19,26 @@ router.post("/login", login);
 router.post("/register", register);
 router.post("/getUserData", authMiddleware, authController);
 router.post("/apply-doctor", authMiddleware, authDoctorController);
-router.post("/get-all-notification",authMiddleware,authgetAllNotificationController);
-router.post("/delete-all-notification",authMiddleware,authdeleteAllNotificationController);
-router.get("/getAllDoctors",authMiddleware,getAllDoctorsController);
-router.post("/book-appointment",authMiddleware,bookAppointmentController);
+router.post(
+  "/get-all-notification",
+  authMiddleware,
+  authgetAllNotificationController
+);
+router.post(
+  "/delete-all-notification",
+  authMiddleware,
+  authdeleteAllNotificationController
+);
+router.get("/getAllDoctors", authMiddleware, getAllDoctorsController);
+router.post("/book-appointment", authMiddleware, bookAppointmentController);
+router.post(
+  "/checking-availability",
+  authMiddleware,
+  checkingAvailabilityController
+);
+router.get(
+  "/getUserAppointmentList",
+  authMiddleware,
+  getUserAppointmentListController
+);
 export default router;

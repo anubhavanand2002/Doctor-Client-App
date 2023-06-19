@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
+import moment from "moment";
 //app.get(abdgdh,(req,res)=>{}) this is same function to be replaced
 
 //for registering the data of user
@@ -176,6 +177,8 @@ export const getAllDoctorsController = async (req, res) => {
 
 export const bookAppointmentController = async (req, res) => {
   try {
+    req.body.date = moment(req.body.date, "YYYY-MM-DD").toISOString();
+    req.body.time = moment(req.body.time, "HH-mm").toISOString();
     req.body.status = "pending";
     const newBooking = new appointmentModel(req.body);
     await newBooking.save();
@@ -194,5 +197,59 @@ export const bookAppointmentController = async (req, res) => {
     return res
       .status(500)
       .json({ status: false, message: "internal Server error!!" });
+  }
+};
+
+export const checkingAvailabilityController = async (req, res) => {
+  try {
+    const date = moment(req.body.date, "YYYY-MM-DD").toISOString();
+    const fromTime = moment(req.body.time, "HH-mm")
+      .subtract(1, "hours")
+      .toISOString();
+    const toTime = moment(req.body.time, "HH-mm").add(1, "hours").toISOString();
+    const doctorId = req.body.doctorId;
+    const appointments = await appointmentModel.find({
+      doctorId,
+      date,
+      time: {
+        $gte: fromTime,
+        $lte: toTime,
+      },
+    });
+    if (appointments.length > 0) {
+      return res.status(201).json({
+        status: false,
+        message: "Appointments not available at this time!!",
+      });
+    } else {
+      return res.status(200).json({
+        status: true,
+        message: "Appointments available!!",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(501)
+      .json({ status: false, message: "internal Server error!!!" });
+  }
+};
+
+export const getUserAppointmentListController = async (req, res) => {
+  try {
+    const appointments = await appointmentModel.find({
+      userId: req.body.userId,
+    });
+    return res.status(200).json({
+      status: true,
+      message: "data received successfully",
+      appointments,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(501).json({
+      status: false,
+      message: "Internal Server Error!!",
+    });
   }
 };

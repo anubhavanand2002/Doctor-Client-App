@@ -26,7 +26,7 @@ export default function Layout({children}) {
   },
   {
     name:"Appointments",
-    path:"/appointments",
+    path:"/doctor-appointments",
     icon:<ion-icon name="list-outline"></ion-icon>
   },
   {

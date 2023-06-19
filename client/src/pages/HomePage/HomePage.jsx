@@ -27,11 +27,18 @@ const HomePage = () => {
         console.log(error);
       })
   }
+ 
 
+
+
+ 
 
   useEffect(()=>{
      getDoctorData();
+     
   },[])
+  
+
 
   return (
     <Layout>

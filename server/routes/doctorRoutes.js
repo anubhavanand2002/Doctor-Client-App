@@ -4,6 +4,8 @@ import {
   getDoctorInfoController,
   updateDoctorInfoController,
   getDoctorByIdController,
+  getDoctorAppointmentsController,
+  authHandleStatusController
 } from "../controllers/doctorController.js";
 import { authMiddleware } from "../middlewares/authMiddleware.js";
 
@@ -15,4 +17,10 @@ router.post("/updateDoctorInfo", authMiddleware, updateDoctorInfoController);
 
 //getting docror by doctorId
 router.post("/getDoctorById", authMiddleware, getDoctorByIdController);
+
+//getting doctors all appointments
+router.get("/doctor-appointments",authMiddleware,getDoctorAppointmentsController);
+
+//changing the status
+router.post("/handle-status",authMiddleware,authHandleStatusController);
 export default router;
