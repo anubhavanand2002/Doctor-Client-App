@@ -10,7 +10,7 @@ export default function Appointments() {
  const {user}=useSelector((state)=>(state.user));
 
 const getAppointments=()=>{
-   axios.get("http://localhost:5000/api/auth/getUserAppointmentList",
+   axios.get("https://doctorapp-api.vercel.app/api/auth/getUserAppointmentList",
    {
     headers:
     {

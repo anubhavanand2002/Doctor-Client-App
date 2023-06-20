@@ -9,7 +9,7 @@ const Login = () => {
   const[password,setPassword]=useState("");
 
   const handleSubmit=()=>{
-    axios.post("http://localhost:5000/api/auth/login",{
+    axios.post("https://doctorapp-api.vercel.app/api/auth/login",{
       email,
       password
     }).then((result)=>{

@@ -8,7 +8,7 @@ export default function Notification() {
      
     const {user}=useSelector((state)=>(state.user));
     const handleMarkAllDelete=()=>{
-        axios.post("http://localhost:5000/api/auth/delete-all-notification",{},{
+        axios.post("https://doctorapp-api.vercel.app/api/auth/delete-all-notification",{},{
             headers:{
                 Authorization:'Bearer '+localStorage.getItem('token'),
             }
@@ -26,7 +26,7 @@ export default function Notification() {
           })
     }
     const handleMarkAllRead=()=>{
-        axios.post("http://localhost:5000/api/auth/get-all-notification",{},{
+        axios.post("https://doctorapp-api.vercel.app/api/auth/get-all-notification",{},{
             headers:{
                 Authorization:'Bearer '+localStorage.getItem('token'),
             }

@@ -11,7 +11,7 @@ export default function ProtectedRoute({children}) {
 const {user}=useSelector((state)=>(state.user));
  
 const getUser=()=>{
-   axios.post("http://localhost:5000/api/auth/getUserData",{},{
+   axios.post("https://doctorapp-api.vercel.app/api/auth/getUserData",{},{
     headers:{
       Authorization:"Bearer " + localStorage.getItem("token"),
     }

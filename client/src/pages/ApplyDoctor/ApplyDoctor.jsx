@@ -26,7 +26,7 @@ export default function ApplyDoctor() {
         const isRequired = true;
     const handledoctorSubmit=(e)=>{
     console.log({firstname,lastname,number,email,website,address,specialization,experience,fee,startTiming,endTiming});
-      axios.post("http://localhost:5000/api/auth/apply-doctor",{
+      axios.post("https://doctorapp-api.vercel.app/api/auth/apply-doctor",{
         userId:user._id,
         firstName:firstname,
         lastName:lastname,

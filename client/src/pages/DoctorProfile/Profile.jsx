@@ -25,7 +25,7 @@ const [endTiming, setEndTiming] = useState("");
 
 const handledoctorSubmit = () => {
   // Handle form submission
-  axios.post("http://localhost:5000/api/doctor/updateDoctorInfo",{
+  axios.post("https://doctorapp-api.vercel.app/api/doctor/updateDoctorInfo",{
     userId:user?._id,
     firstName:firstname,
     lastName:lastname,
@@ -62,7 +62,7 @@ const handledoctorSubmit = () => {
 
 const getDoctorInfo = () => {
   axios
-    .post("http://localhost:5000/api/doctor/getdoctorInfo", {
+    .post("https://doctorapp-api.vercel.app/api/doctor/getdoctorInfo", {
       userId: user?._id
     }, {
       headers: {

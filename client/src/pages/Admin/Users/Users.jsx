@@ -7,7 +7,7 @@ export default function Users() {
  const[user,setUser]=useState("");
 
  const getUsers=()=>{
-   axios.get("http://localhost:5000/api/admin/getAllUsers",{
+   axios.get("https://doctorapp-api.vercel.app/api/admin/getAllUsers",{
     headers:{
         Authorization:"Bearer "+localStorage.getItem("token"),
     }

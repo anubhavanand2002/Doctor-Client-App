@@ -13,7 +13,7 @@ const Register = () => {
 
   const handleSubmit=()=>{
     console.log(name);
-      axios.post("http://localhost:5000/api/auth/register",{
+      axios.post("https://doctorapp-api.vercel.app/api/auth/register",{
         name,
         email,
         password

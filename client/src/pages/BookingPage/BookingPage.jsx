@@ -15,7 +15,7 @@ export default function BookingPage() {
    const {user}=useSelector((state)=>(state.user));
      
    const getDoctor=()=>{
-     axios.post("http://localhost:5000/api/doctor/getDoctorById",{
+     axios.post("https://doctorapp-api.vercel.app/api/doctor/getDoctorById",{
         doctorId:params.doctorId,
      },
      {
@@ -37,7 +37,7 @@ export default function BookingPage() {
 
 
    const handleSubmit=()=>{
-    axios.post("http://localhost:5000/api/auth//book-appointment",{
+    axios.post("https://doctorapp-api.vercel.app/api/auth//book-appointment",{
         userId:user?._id,
         doctorId:params.doctorId,
         userInfo:user,
@@ -65,7 +65,7 @@ export default function BookingPage() {
    }
 
    const handleCheckingAvailability=()=>{
-    axios.post("http://localhost:5000/api/auth/checking-availability",{
+    axios.post("https://doctorapp-api.vercel.app/api/auth/checking-availability",{
       doctorId:params.doctorId,
       date,
       time,

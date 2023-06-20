@@ -9,7 +9,7 @@ export default function Doctors() {
 
   const handleClick=(data)=>{
     const {record,status}=data;
-    axios.post("http://localhost:5000/api/admin/changeAccountStatus",{
+    axios.post("https://doctorapp-api.vercel.app/api/admin/changeAccountStatus",{
       doctorId:record._id,
       status:status
     },{
@@ -32,7 +32,7 @@ export default function Doctors() {
   }
 
  const getDoctors=()=>{
-   axios.get("http://localhost:5000/api/admin/getAllDoctors",{
+   axios.get("https://doctorapp-api.vercel.app/api/admin/getAllDoctors",{
     headers:{
         Authorization:"Bearer "+localStorage.getItem("token"),
     }

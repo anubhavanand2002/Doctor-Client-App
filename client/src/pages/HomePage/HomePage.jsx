@@ -10,7 +10,7 @@ const HomePage = () => {
   const[doctors,setDoctors]=useState("");
 
   const getDoctorData=()=>{
-      axios.get("http://localhost:5000/api/auth/getAllDoctors",{
+      axios.get("https://doctorapp-api.vercel.app/api/auth/getAllDoctors",{
         headers:{
           Authorization:"Bearer " + localStorage.getItem("token"),
         },

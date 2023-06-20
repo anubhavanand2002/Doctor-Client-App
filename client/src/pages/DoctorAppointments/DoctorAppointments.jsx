@@ -10,7 +10,7 @@ export default function DoctorApoointments() {
 
   const getDoctorAppointments = () => {
     axios
-      .get("http://localhost:5000/api/doctor/doctor-appointments", {
+      .get("https://doctorapp-api.vercel.app/api/doctor/doctor-appointments", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -29,7 +29,7 @@ export default function DoctorApoointments() {
  
  
   const handleStatus=(record,status)=>{
-     axios.post("http://localhost:5000/api/doctor/handle-status",
+     axios.post("https://doctorapp-api.vercel.app/api/doctor/handle-status",
      {
         appointmentId:record._id,
         status
