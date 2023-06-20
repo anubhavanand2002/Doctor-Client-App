@@ -37,7 +37,7 @@ export default function BookingPage() {
 
 
    const handleSubmit=()=>{
-    axios.post("https://doctorapp-api.vercel.app/api/auth//book-appointment",{
+    axios.post("https://doctorapp-api.vercel.app/api/auth/book-appointment",{
         userId:user?._id,
         doctorId:params.doctorId,
         userInfo:user,
