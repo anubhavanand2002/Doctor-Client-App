@@ -1,46 +1,60 @@
-.doctorlist-container{
-    padding: 40px;
-    width: 100vh;
-    height: 100vh;
-    cursor: pointer;
-    display: flex;
-    flex-wrap: wrap;
+.doctorlist-container {
+  padding: 40px;
+  width: 100%;
+  height: auto; /* Change to auto to allow height adjustment based on content */
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
 }
+
 .doctorlist-container .main-container {
-    /* Your existing styles */
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 30%;
+  height: 30%;
+  box-shadow: 1px 1px 1px 1px rgb(198, 194, 194);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctorlist-container .main-container:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 2px 2px rgb(198, 194, 194);
+}
+
+.doctorlist-container .main-container .name {
+  background-color: rgb(220, 220, 220);
+  padding: 10px;
+  width: 100%;
+  height: auto; /* Change to auto to allow height adjustment based on content */
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+.doctorlist-container .main-container .about {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.name1 {
+  font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .doctorlist-container .main-container {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
-    border-radius: 4px;
-    width: 30%;
-    height: 30%;
-    box-shadow: 1px 1px 1px 1px rgb(198, 194, 194);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition property for smooth animation */
+    width: 100%; /* Adjust the width based on your preference */
   }
-  
-  .doctorlist-container .main-container:hover {
-    transform: scale(1.05); /* Increase size by 5% on hover */
-    box-shadow: 2px 2px 2px 2px rgb(198, 194, 194); /* Add a slightly larger shadow on hover */
-  }
-  
-.doctorlist-container .main-container .name {
-    background-color: rgb(220, 220, 220);
-    padding: 10px; /* Change the RGB values to achieve the desired grayish white color */
-    width: 100%;
-    height: 20%;
-    color: black;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold; /* This line seems to be incorrect; remove it */
-    border-bottom: 1px solid black; /* Add a border at the bottom with 1px width and black color */
-  }
-  
-.doctorlist-container .main-container .about{
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 20px;
 }
-.name1 {
-    font-weight: bold;
+
+@media (max-width: 480px) {
+  .doctorlist-container .main-container {
+    width: 100%; /* Adjust the width based on your preference */
   }
-  
+}

@@ -94,3 +94,11 @@
    font-size: 30px;
    margin: 0px 10px;
 }
+@media (max-width: 400px) {
+    .layout-container .main-container .sidebar {
+        width: 100px;
+    }
+    .layout-container .main-container .sidebar .item a{
+        font-size: 11px;
+    }
+}
