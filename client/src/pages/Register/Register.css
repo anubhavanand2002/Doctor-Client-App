@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     width: 20%;
-    height: 60%;
+    height: 70%;
     padding: 40px;
     box-shadow: 2px 1.5px 1.5px 2px rgb(106, 101, 101);
 }
@@ -52,3 +52,22 @@
 .register-container .main-container p{
   margin: 10px 0px;
 }
+a{
+    text-decoration: none;
+    color: blue;
+    font-weight: bolder;
+}
+@media (max-width: 768px) {
+    .register-container .main-container {
+      width: 60%;
+      height: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .register-container .main-container {
+      width: 80%;
+      height: 90%;
+    }
+  }
+  

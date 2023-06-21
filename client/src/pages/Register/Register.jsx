@@ -3,7 +3,7 @@ import './Register.css';
 import axios from 'axios';
 import {message} from 'antd';
 import {useNavigate} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 const Register = () => {
   const navigate=useNavigate();
 
@@ -63,6 +63,7 @@ const Register = () => {
             ></input>
           </div>
           <button type="submit" onClick={()=>{handleSubmit()}}>Submit</button>
+          <Link to="/login">Have You Already Registered?Then Login</Link>
        </div>
    </div>
     </div>

@@ -3,6 +3,7 @@ import './Login.css';
 import axios from 'axios';
 import {message} from 'antd';
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Login = () => {
   const navigate=useNavigate();
   const[email,setEmail]=useState("");
@@ -50,6 +51,7 @@ const Login = () => {
             ></input>
           </div>
           <button type="submit" onClick={()=>{handleSubmit()}}>Submit</button>
+          <Link to="/register">Are You a new User?Register First</Link>
        </div>
    </div>
   );
