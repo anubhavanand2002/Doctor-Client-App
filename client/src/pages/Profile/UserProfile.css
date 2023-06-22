@@ -1,0 +1,39 @@
+.userprofile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 60vh;
+    width: 100%;
+}
+.userprofile-container .main-container{
+    display: flex;
+    flex-direction: column;
+  width: auto;
+  border: 2px solid black;
+  border-radius: 4px;
+  box-shadow: 3px 3px  2px 2px rgb(170, 164, 164);
+  cursor: pointer;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.userprofile-container .main-container:hover{
+    transform: scale(1.05);
+    box-shadow: 2px 2px 2px 2px rgb(198, 194, 194);
+}
+.userprofile-container .main-container .name{
+    margin: 10px 10px;
+}
+.userprofile-container .main-container .email{
+    margin: 10px 10px;
+}
+.userprofile-container .main-container .notification{
+    margin: 10px 10px;
+}
+.userprofile-container .main-container .seen-notification{
+    margin: 10px 10px;
+}
+.userprofile-container .main-container h1{
+    font-weight: bolder;
+}

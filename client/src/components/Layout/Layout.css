@@ -96,9 +96,12 @@
 }
 @media (max-width: 400px) {
     .layout-container .main-container .sidebar {
-        width: 100px;
+        width: 150px;
     }
     .layout-container .main-container .sidebar .item a{
         font-size: 11px;
+    }
+    .layout-container .main-container .other .content{
+        height: auto;
     }
 }
