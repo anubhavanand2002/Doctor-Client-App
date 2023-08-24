@@ -63,24 +63,6 @@ export default function DoctorApoointments() {
       title: "ID",
       dataIndex: "_id",
     },
-    // {
-    //     title:'Name',
-    //     dataIndex:"name",
-    //     render:(text,record)=>(
-    //         <span>
-    //             {record.doctorInfo.firstName} {record.doctorInfo.lastName}
-    //         </span>
-    //     ),
-    // },
-    // {
-    //     title:"phone",
-    //     dataIndex:"phone",
-    //     render:(text,record)=>(
-    //         <span>
-    //             {record.phone}
-    //         </span>
-    //     ),
-    // },
     {
       title: "date",
       dataIndex: "date",

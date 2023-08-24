@@ -167,7 +167,7 @@ export const authdeleteAllNotificationController = async (req, res) => {
 
 export const getAllDoctorsController = async (req, res) => {
   try {
-    const doctors = await doctorModel.find({ status: "Approved" });
+    const doctors = await doctorModel.find({ status: "approved" });
     return res.status(200).json({
       status: true,
       message: "Doctor info is generated",

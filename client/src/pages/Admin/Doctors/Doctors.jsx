@@ -77,7 +77,7 @@ useEffect(()=>{
         <div className="class">
             {
               record.status==="pending"?
-              (<button className='btn-btn-success' onClick={()=>{handleClick({record,status:"Approved"})}}>Approve</button>):
+              (<button className='btn-btn-success' onClick={()=>{handleClick({record,status:"approved"})}}>Approve</button>):
               (<button className='btn-btn-danger'>Reject</button>)
             }
         </div>
