@@ -4,10 +4,12 @@ import jwt from "jsonwebtoken";
 import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
 import moment from "moment";
+import cloudinary from "cloudinary";
 //app.get(abdgdh,(req,res)=>{}) this is same function to be replaced
 
 //for registering the data of user
 export const register = async (req, res) => {
+  // console.log(req.files.image);
   const { name, email, password } = req.body;
   try {
     const existingUser = await User.findOne({ email });
@@ -18,10 +20,14 @@ export const register = async (req, res) => {
         .json({ status: false, message: "User Already exist!!" });
     }
     const hashedPassword = await bcrypt.hash(password, 10); // The second argument is the saltRounds
+    const result = await cloudinary.v2.uploader.upload(
+      req.files.image.tempFilePath
+    );
     const user = new User({
       name,
       email,
       password: hashedPassword,
+      avatar: result.secure_url,
     });
     await user.save();
     return res

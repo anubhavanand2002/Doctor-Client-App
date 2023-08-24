@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   isAdmin: { type: Boolean, default: false },
   notification: { type: Array, default: [] },
   seennotification: { type: Array, default: [] },
+  avatar:{type:String}
 });
 const User = mongoose.model("users", userSchema);
 export default User;

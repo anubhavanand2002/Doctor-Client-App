@@ -14,6 +14,82 @@ export default function BookingPage() {
 
    const {user}=useSelector((state)=>(state.user));
      
+
+    const makePayment = async (amount, user) => {
+  try {
+    //api key 
+    const response1 = await axios.get(
+      `https://doctorapp-api.vercel.app/api/payment/get-key`
+    );
+    //for creating a window for some time
+    const response2 = await axios.post(
+      `https://doctorapp-api.vercel.app/api/payment/checkout`,
+      {
+        amount,
+      }
+    );
+   
+
+    const { key } = response1.data;
+    const { order } = response2.data;
+
+    const option = {
+      key,
+      amount: order.amount,
+      currency: "INR",
+      name: "Doctor Appointment",
+      description: "Payment for Doctor Appointment",
+      order_id: order.id,
+      prefill: {
+        name: "Doctor App",
+        email: "doctor@gmail.com",
+        contact: "9865541789",
+      },
+      notes: {
+        address: "Botanical Garden Area, Howrah, West Bengal 711103",
+      },
+      theme: { color: "#e70b53" },
+  
+      handler: async (response) => {
+        try {
+          const res = await axios.post(
+            `https://doctorapp-api.vercel.app/api/payment/payment-verification`,
+            {
+              ...response,
+              amount,
+              user
+            }
+          );
+
+          const {status} = res.data;
+          if(status){
+            handleSubmit();
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    };
+    const razor = window.Razorpay(option);
+    razor.open();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    const getDoctor=()=>{
      axios.post("https://doctorapp-api.vercel.app/api/doctor/getDoctorById",{
         doctorId:params.doctorId,
@@ -145,7 +221,7 @@ export default function BookingPage() {
         <div>
         <button 
         className='btn1'
-        onClick={()=>{handleSubmit()}}
+        onClick={()=>{makePayment(doctor.feePerConsultation,user)}}
         >Book Now</button>
         </div>
        }

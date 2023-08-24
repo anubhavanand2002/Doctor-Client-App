@@ -36,13 +36,22 @@
     margin-top: 30px;
  }
  .apply-doctor-container .btn{
-    margin-top: 130px;
     color: white;
     background-color: blue;
     font-size: 30px;
     font-weight: 40px;
-    width: 30%;
+    width: 100%;
     justify-content: center;
     height: 50px;
  }
- 
+ @media (max-width: 400px) {
+    .apply-doctor-container .main-container input{
+        width: 110%;
+    }
+    .apply-doctor-container{
+        width: 100%;
+    }
+    .apply-doctor-container .btn{
+        width: 100%;
+    }
+ }
